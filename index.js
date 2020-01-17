@@ -1,7 +1,13 @@
+const homeBttn = document.querySelector('#home');
+const menuBttn = document.querySelector('#menu');
+const contactBttn = document.querySelector('#contact');
+const sideMenu = document.querySelector('.side-menu');
+const navBttns = [homeBttn, menuBttn, contactBttn];
+
 const updateSelectedTab = function(selectedTab) {
-  document.querySelector('#menu').classList.remove('selected');
-  document.querySelector('#home').classList.remove('selected');
-  document.querySelector('#contact').classList.remove('selected');
+  menuBttn.classList.remove('selected');
+  homeBttn.classList.remove('selected');
+  contactBttn.classList.remove('selected');
 
   document.querySelector(`#${selectedTab}`).classList.add('selected');
 };
@@ -20,6 +26,18 @@ const addEventListenersToTabs = function() {
 
 addEventListenersToTabs();
 
-document.querySelector('#menu').addEventListener('click', () => {
-  document.querySelector('.side-menu').classList.remove('off-screen');
-})
+const addSideMenuEvents = function() {
+  menuBttn.addEventListener('click', () => {
+    sideMenu.classList.remove('off-screen');
+  });
+  // add event listener to other two tabs
+};
+
+addSideMenuEvents();
+
+const closeSideMenu = function() {
+  sideMenu.classList.add('off-screen');
+};
+
+homeBttn.addEventListener('click', closeSideMenu);
+contactBttn.addEventListener('click', closeSideMenu);

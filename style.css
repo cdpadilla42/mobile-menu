@@ -2,6 +2,10 @@
   box-sizing: border-box;
 } */
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: #141618;
   color: white;
@@ -9,6 +13,14 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  display: grid;
+  /* grid-area: 'head' 'content' 'nav'; */
+  height: 100%;
+  grid-template-rows: 60px 1fr 60px;
+}
+
+#content {
+  overflow: scroll;
 }
 
 /* Navigation Styling */
@@ -60,8 +72,8 @@ li a:hover {
 /* Side menu */
 
 .side-menu {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   min-height: 200px;
   background-color: grey;
   z-index: 1;
@@ -70,9 +82,18 @@ li a:hover {
   transition-duration: 600ms;
 }
 .side-menu-wrapper {
-  /* */
+  width: 100%;
+  height: 100%;
 }
 
 .side-menu.off-screen {
   transform: translate(-100%);
+}
+
+.menu-options a {
+  color: blue;
+  display: block;
+  padding: 10px;
+  padding-left: 20%;
+  text-decoration: none;
 }
